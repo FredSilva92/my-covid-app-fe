@@ -1,0 +1,17 @@
+.top-bar {
+    height: 12vh;
+    background-color: darkblue;
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    border: 2px #ffffff solid;
+}
+
+.top-bar-content {
+    margin-left: 3rem;
+    display: flex;
+}
+
+.top-bar-text {
+    margin-left: 2rem;
+}

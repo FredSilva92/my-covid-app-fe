@@ -1,0 +1,32 @@
+.table-cases-comp {
+    margin: 2rem;
+    display: grid;
+    header {
+        padding: 2rem 6rem;
+        font-size: 3rem;
+        border: 1px #ffffff solid;
+    }
+    table {
+        font-size: 2rem;
+        border: 1px #ffffff solid;
+        td {
+            text-align: center;
+        }
+    }
+}
+
+.confirmed {
+    color: #0080ff;
+}
+
+.recovered {
+    color: #00b33c;
+}
+
+.deaths {
+    color: #e63900;
+}
+
+.active {
+    color: #ffa31a;
+}

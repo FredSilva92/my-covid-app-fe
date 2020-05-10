@@ -1,0 +1,13 @@
+<div class="container-fluid" style="height: 85vh;">
+  <div class="row" style="height: 100%;">
+    <nav class="pill-nav sidebar">
+      <a class="nav-link" routerLinkActive="active" [routerLink]="['/dashboard']">Dashboard</a>
+      <a class="nav-link" routerLinkActive="active" [routerLink]="['/worldmap']">World map</a>
+      <a class="nav-link" routerLinkActive="active" [routerLink]="['/worldtable']">World table</a>
+      <a class="nav-link" routerLinkActive="active" [routerLink]="['/statistics']">Statistics</a>
+    </nav>
+
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
