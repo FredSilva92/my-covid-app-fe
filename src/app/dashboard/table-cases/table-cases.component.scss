@@ -1,32 +1,56 @@
+@mixin table-border {
+    border: 1px #ffffff solid;
+}
+
 .table-cases-comp {
     margin: 2rem;
     display: grid;
-    header {
-        padding: 2rem 6rem;
-        font-size: 3rem;
-        border: 1px #ffffff solid;
+
+    .loading-mask {
+        width: 16rem;
+        height: 16rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include table-border();
     }
-    table {
-        font-size: 2rem;
-        border: 1px #ffffff solid;
-        td {
-            text-align: center;
+
+    .table-cases-content {
+        header {
+            padding: 1rem 6rem;
+            font-size: 3rem;
+            @include table-border();
         }
+        div {
+            padding: 1rem 0rem;
+            @include table-border();
+
+            table {
+                font-size: 2rem;
+                width: 100%;
+                
+                td {
+                    height: 5rem;
+                    text-align: center;
+                }
+            }
+        }
+        }
+        
+
+    .confirmed {
+        color: #0080ff;
     }
-}
-
-.confirmed {
-    color: #0080ff;
-}
-
-.recovered {
-    color: #00b33c;
-}
-
-.deaths {
-    color: #e63900;
-}
-
-.active {
-    color: #ffa31a;
+    
+    .recovered {
+        color: #00b33c;
+    }
+    
+    .deaths {
+        color: #e63900;
+    }
+    
+    .active {
+        color: #ffa31a;
+    }
 }

@@ -1,39 +1,40 @@
 import { Component, OnInit } from '@angular/core';
 import { DashboardService } from 'src/app/_services/dashboard.service';
-import { DatePipe } from '@angular/common';
 import { TotalCases } from 'src/app/_models/totalCases';
+import { TotalCasesRequest } from '../../_models/totalCasesRequest';
+import * as TimeUtils from '../../utils/TimeUtils';
 
 @Component({
   selector: 'app-table-cases',
   templateUrl: './table-cases.component.html',
   styleUrls: ['./table-cases.component.scss']
 })
-export class TableCasesComponent implements OnInit {
+export class TableCasesComponent implements OnInit{
 
-  private dateToday: Date = new Date();
-  // This also gives you todays date if you don't alter it on init.
-  private dateYesterday: Date = new Date();
+  isDataLoaded: boolean;
+  isError: boolean;
   data: TotalCases;
 
-  constructor(private dashboardService: DashboardService, private datePipe: DatePipe) { }
+  constructor(private dashboardService: DashboardService) {
 
+  }
   ngOnInit(): void {
-    const requestData: any = {};
-    let previousDay = new Date(this.dateYesterday.setDate(this.dateYesterday.getDate() - 1));
-
-
-    requestData.reportDate = this.datePipe.transform(previousDay, 'MM-dd-yyyy');
-    requestData.continent = '';
+    const requestData: TotalCasesRequest = {
+        reportDate: TimeUtils.getReportDate(-1),
+        continent: ''
+      };
 
     this.dashboardService.getTotalCases(requestData).subscribe(
       data => {
         console.log('Success');
         this.data = data;
+        this.isDataLoaded = true;
       },
       error => {
+        this.isError = true;
+        this.isDataLoaded = true;
         console.log('Error');
         console.log(error);
-    });
+      });
   }
-
 }

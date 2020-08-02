@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DashboardService } from '../_services/dashboard.service';
-import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard',

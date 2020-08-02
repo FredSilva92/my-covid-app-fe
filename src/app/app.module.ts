@@ -17,6 +17,10 @@ import { DatePipe } from '@angular/common';
 import { TableCasesComponent } from './dashboard/table-cases/table-cases.component';
 import { DonutChartComponent } from './dashboard/donut-chart/donut-chart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxSmartLoaderModule, NgxSmartLoaderService } from 'ngx-smart-loader';
+import { LoadingMaskComponent } from './general-components/loading-mask/loading-mask.component';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
    declarations: [
@@ -27,18 +31,23 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       StatisticsComponent,
       WorldTableComponent,
       TableCasesComponent,
-      DonutChartComponent
+      DonutChartComponent,
+      LoadingMaskComponent
    ],
    imports: [
       BrowserModule,
       AppRoutingModule,
       HttpClientModule,
       RouterModule.forRoot(appRoutes),
-      BrowserAnimationsModule
+      BrowserAnimationsModule,
+      NgxSmartLoaderModule.forRoot(),
+      LeafletModule,
+      MatSelectModule
    ],
    providers: [
       DashboardService,
-      DatePipe
+      DatePipe,
+      NgxSmartLoaderService
    ],
    bootstrap: [
       AppComponent

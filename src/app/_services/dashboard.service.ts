@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { TotalCases } from '../_models/totalCases';
+import { TotalCasesRequest } from '../_models/totalCasesRequest';
 
 @Injectable({
   providedIn: 'root'
@@ -11,17 +12,16 @@ import { TotalCases } from '../_models/totalCases';
 export class DashboardService {
 
   private baseUrl = `${environment.apiUrl}Dashboard/`;
-  private httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type':  'application/json'
-    })
-  };
 
   constructor(private http: HttpClient) { }
 
-  getTotalCases(requestData: any): Observable<TotalCases> {
-    return this.http.get<TotalCases>(`${this.baseUrl}totalCases`, {
-      params: requestData
+  public getTotalCases(requestData: TotalCasesRequest): Observable<TotalCases> {
+    return this.http.get<TotalCases>(`${this.baseUrl}totalCases`,
+    {
+      params: {
+        reportDate: requestData.reportDate,
+        continent: requestData.continent
+      }
     });
   }
 

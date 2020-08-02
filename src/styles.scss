@@ -2,7 +2,11 @@
 @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 @import '../node_modules/font-awesome/css/font-awesome.min.css';
 @import "../node_modules/bootswatch/dist/Darkly/bootstrap.min.css"; 
+@import "~ngx-smart-loader/ngx-smart-loader";
+@import "app/app.component";
 
 html{
     font-size: 62.5%;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
